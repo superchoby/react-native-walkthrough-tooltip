@@ -398,10 +398,6 @@ class Tooltip extends Component {
     };
 
     return (
-      <TouchableWithoutFeedback
-        onPress={this.props.onClose}
-        accessible={this.props.accessible}
-      >
         <View style={generatedStyles.containerStyle}>
           <View style={[generatedStyles.backgroundStyle]}>
             <View style={generatedStyles.tooltipStyle}>
@@ -423,7 +419,6 @@ class Tooltip extends Component {
             ? this.renderChildInTooltip()
             : null}
         </View>
-      </TouchableWithoutFeedback>
     );
   };
 
