@@ -398,27 +398,33 @@ class Tooltip extends Component {
     };
 
     return (
+        <TouchableWithoutFeedback
+          onPress={this.props.onClose}
+          accessible={this.props.accessible}
+        >
         <View style={generatedStyles.containerStyle}>
           <View style={[generatedStyles.backgroundStyle]}>
             <View style={generatedStyles.tooltipStyle}>
               {hasChildren ? <View style={generatedStyles.arrowStyle} /> : null}
-              <View
-                onLayout={this.measureContent}
-                style={generatedStyles.contentStyle}
+              <TouchableWithoutFeedback
+                onPress={() => { }}
+                accessible={this.props.accessible}
               >
-                <TouchableWithoutFeedback
-                  onPress={onPressContent}
-                  accessible={this.props.accessible}
+                <View
+                  onLayout={this.measureContent}
+                  style={generatedStyles.contentStyle}
                 >
+
                   {this.props.content}
-                </TouchableWithoutFeedback>
-              </View>
+                </View>
+              </TouchableWithoutFeedback>
             </View>
           </View>
           {hasChildren && this.props.showChildInTooltip
             ? this.renderChildInTooltip()
             : null}
         </View>
+      </TouchableWithoutFeedback>
     );
   };
 
